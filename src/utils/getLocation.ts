@@ -1,5 +1,7 @@
+//* Imports
 import axios from "axios";
 
+//* getLocation Helper Function
 const getLocation = async (searchText: string) => {
   const {
     data: {
