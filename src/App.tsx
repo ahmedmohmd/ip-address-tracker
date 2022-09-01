@@ -3,6 +3,7 @@ import { FC, useState } from "react";
 import clsx from "clsx";
 import SearchBar from "./components/SearchBar";
 import Result from "./components/Result";
+import { ToastContainer } from "react-toastify";
 
 //* JSX
 const App: FC = () => {
@@ -58,6 +59,8 @@ const App: FC = () => {
           alt="Map"
         />
       </figure>
+
+      <ToastContainer />
     </article>
   );
 };
