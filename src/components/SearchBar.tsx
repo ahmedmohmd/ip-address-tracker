@@ -3,6 +3,7 @@ import React, { FC, useState } from "react";
 import clsx from "clsx";
 import validateIp from "../utils/validate";
 import { toast } from "react-toastify";
+
 //* Props INterface
 interface SearchBarProps {
   onSearch: (ip: string) => void;
@@ -14,7 +15,7 @@ const SearchBar: FC<SearchBarProps> = ({ onSearch }) => {
   const [placeholder, setPlaceholder] = useState<string>(
     "Search for any IP adress or Domain"
   );
-  const [searchText, setSearchText] = useState<string>("");
+  const [searchText, setSearchText] = useState<string>("192.168.1.1");
   const [isIpValid, setIsIpValid] = useState<boolean>(true);
 
   //* Handlers
@@ -27,7 +28,7 @@ const SearchBar: FC<SearchBarProps> = ({ onSearch }) => {
       onSearch(searchText);
     } else {
       setIsIpValid(false);
-      toast.error("Sorry, IP must be Valid!", {
+      toast.error("Sorry, Search Text must be a Valid IP or Domain Name!", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,

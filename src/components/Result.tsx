@@ -3,6 +3,15 @@ import { FC } from "react";
 import clsx from "clsx";
 
 //* Props Interface
+interface ResultProps {
+  location: {
+    isp: string;
+    timezone: string;
+    ip: string;
+    country: string;
+    region: string;
+  };
+}
 interface ResultHeadingProps {
   heading: string;
   value: string;
@@ -26,7 +35,9 @@ const ResultHeading: FC<ResultHeadingProps> = ({ heading, value }) => {
 };
 
 //* Result JSX
-const Result: FC = () => {
+const Result: FC<ResultProps> = ({
+  location: { ip, timezone, isp, country, region },
+}) => {
   return (
     <article
       className={clsx(
@@ -37,10 +48,18 @@ const Result: FC = () => {
         "w-full md:w-auto"
       )}
     >
-      <ResultHeading heading="IP ADDRESS" value="192.212.174.101" />
-      <ResultHeading heading="LOCATION" value="Brooklyn, NY 10001" />
-      <ResultHeading heading="TIMEZONE" value="UTC-05:00" />
-      <ResultHeading heading="ISP" value="SPACEX Starlink" />
+      <ResultHeading heading="IP ADDRESS" value={ip ? ip : "192.212.174.101"} />
+      <ResultHeading
+        heading="LOCATION"
+        value={
+          country && region ? `${country}, ${region}` : "Brooklyn, NY 10001"
+        }
+      />
+      <ResultHeading
+        heading="TIMEZONE"
+        value={timezone ? `UTC${timezone}` : "UTC-05:00"}
+      />
+      <ResultHeading heading="ISP" value={isp ? isp : "SPACEX Starlink"} />
     </article>
   );
 };

@@ -1,19 +1,41 @@
 //* Imports
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import clsx from "clsx";
 import SearchBar from "./components/SearchBar";
 import Result from "./components/Result";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import getLocation from "./utils/getLocation";
 
 //* JSX
 const App: FC = () => {
-  //* Stats
-  const [ip, setIp] = useState<string>("");
+  //* Stats & Defaults
+  const [searchText, setSearchText] = useState<string>("192.168.1.1");
+  const [location, setLocation] = useState<any>({});
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const data = await getLocation(searchText);
+        setLocation(data);
+      } catch (error) {
+        toast.error("Sorry, There is Problem in Internet!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
+      }
+    };
+
+    getData();
+  }, [searchText]);
 
   //* Handlers
-  const ipHandler = (ip: string) => {
-    setIp(ip);
-    console.log(ip);
+  const ipHandler = (searchText: string) => {
+    setSearchText(searchText);
   };
 
   return (
@@ -41,7 +63,7 @@ const App: FC = () => {
         </h1>
 
         <SearchBar onSearch={ipHandler} />
-        <Result />
+        <Result location={location} />
       </section>
 
       <figure className={clsx("w-full h-full", "grow-[1] basis-1")}>
