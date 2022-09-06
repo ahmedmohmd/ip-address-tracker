@@ -74,12 +74,14 @@ const App: FC = () => {
         />
       </figure>
 
-      <figure className={clsx("w-full h-auto", "grow-[2] basis-2")}>
-        <img
+      <figure
+        className={clsx("w-full h-auto", "grow-[2] basis-2", "bg-red-500")}
+      >
+        {/* <img
           className={clsx("w-full h-full", "object-cover")}
           src="/media/images/map.jpg"
           alt="Map"
-        />
+        /> */}
       </figure>
 
       <ToastContainer />
