@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "preline/dist/hs-ui.bundle";
 import "./index.css";
+// import "leaflet/dist/leaflet.css";
 import "react-toastify/dist/ReactToastify.css";
 import App from "./App";
 

@@ -5,6 +5,7 @@ import SearchBar from "./components/SearchBar";
 import Result from "./components/Result";
 import { toast, ToastContainer } from "react-toastify";
 import getLocation from "./utils/getLocation";
+import Map from "./components/Map";
 
 //* JSX
 const App: FC = () => {
@@ -51,7 +52,8 @@ const App: FC = () => {
           "w-full",
           "flex justify-center items-center flex-col gap-6 md:gap-8",
           "absolute left-1/2 top-16 -translate-x-1/2",
-          "mx-auto px-5"
+          "mx-auto px-5",
+          "z-10"
         )}
       >
         <h1
@@ -75,11 +77,12 @@ const App: FC = () => {
       </figure>
 
       <figure className={clsx("w-full h-auto", "grow-[2] basis-2")}>
-        <img
+        {/* <img
           className={clsx("w-full h-full", "object-cover")}
           src="/media/images/map.jpg"
           alt="Map"
-        />
+        /> */}
+        <Map />
       </figure>
 
       <ToastContainer />
