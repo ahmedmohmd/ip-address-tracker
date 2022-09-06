@@ -77,7 +77,7 @@ const App: FC = () => {
       <figure className={clsx("w-full h-auto", "grow-[2] basis-2")}>
         <img
           className={clsx("w-full h-full", "object-cover")}
-          src={`https://maps.googleapis.com/maps/api/staticmap?center=40.714%2c%20-73.998&zoom=12&size=400x400&key=AIzaSyDOyLfwxUo4TeokgkFAq6OOLkQR7L2Pu9w`}
+          src="/media/images/map.jpg"
           alt="Map"
         />
       </figure>
