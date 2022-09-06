@@ -74,14 +74,15 @@ const App: FC = () => {
         />
       </figure>
 
-      <figure
-        className={clsx("w-full h-auto", "grow-[2] basis-2", "bg-red-500")}
-      >
-        {/* <img
+      <figure className={clsx("w-full h-auto", "grow-[2] basis-2")}>
+        <img
           className={clsx("w-full h-full", "object-cover")}
-          src="/media/images/map.jpg"
+          src={`https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap
+          &markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318
+          &markers=color:red%7Clabel:C%7C40.718217,-73.998284
+          &key=AIzaSyDOyLfwxUo4TeokgkFAq6OOLkQR7L2Pu9w&signature=YOUR_SIGNATURE`}
           alt="Map"
-        /> */}
+        />
       </figure>
 
       <ToastContainer />
